@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="box">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">Login</h5>
+                <hr>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Usuario</label>
+                        <input type="text" [(ngModel)]="usuario" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" [(ngModel)]="password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

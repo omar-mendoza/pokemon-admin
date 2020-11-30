@@ -1,0 +1,101 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+
+
+        <!--user info-->
+        <div class="col-2 col-md-2 col-sm-12">
+            <div class="card" style="width: 18rem;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ pokedex.nombrePokedex }}</h5>
+                    <hr>
+                    <p class="text-center">{{ pokedex.aliasUsuario }}</p>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary btn-block" (click)="salir()">Salir</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--Pokemón info-->
+        <div class="col-10 col-md-10 col-sm-12">
+            <p-tabView>
+
+
+                <!--Pokemones usuario-->
+
+                <p-tabPanel header="Mis Pokemones">
+                    <p-table [value]="pokedex.pokemones" [lazy]="true" (onLazyLoad)="loadMisPokemones($event)"
+                        [paginator]="true" [rows]="5" [totalRecords]="totalRecords" [loading]="loadingMisPokemones">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th></th>
+                                <th>Pokemon</th>
+                                <th>Nature</th>
+                                <th>Shiny</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-pokemon>
+                            <tr>
+                                <td>
+                                    <img src="{{pokemon.base64Imagen}}" width="150" height="auto">
+                                </td>
+                                <td>{{pokemon.nombrePokemon}}</td>
+                                <td>{{pokemon.nature}}</td>
+                                <td>{{pokemon.shiny}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary"
+                                        (click)="editar(pokemon)">Editar</button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger"
+                                        (click)="eliminar(pokemon)">Eliminar</button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-tabPanel>
+
+
+                <!-- Pokemones api-->
+                <p-tabPanel header="Pokemones">
+                    <p-table [value]="pokemones" [lazy]="true" (onLazyLoad)="loadPokemones($event)" [paginator]="true"
+                        [rows]="5" [totalRecords]="totalRecordsPokemones" [loading]="loadingPokemones">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th></th>
+                                <th>Pokemon</th>
+                                <th>Nature</th>
+                                <th>Shiny</th>
+                                <th>Agregar</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-pokemon>
+                            <tr>
+                                <td>
+                                    <img src="{{pokemon.base64Imagen}}" width="150" height="auto">
+                                </td>
+                                <td>{{pokemon.nombrePokemon}}</td>
+                                <td>{{pokemon.nature}}</td>
+                                <td>{{pokemon.shiny}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary"
+                                        (click)="agregar(pokemon)">Agregar</button>
+                                </td>
+
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-tabPanel>
+
+
+            </p-tabView>
+
+        </div>
+    </div>
+</div>
