@@ -1,6 +1,20 @@
+
 # PokemonApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+
+# Screenshots
+
+Página de login
+![image](login.png)
+
+Página de admin, mostrando mis pokemones
+![image](home1.png)
+
+
+Página de admin, mostrando los pokemones del api [Pokemon](https://pokeapi.co) 
+![image](home2.png)
+![image](home3.png)
 
 ## Development server
 
